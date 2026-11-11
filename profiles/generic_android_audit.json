@@ -1,0 +1,36 @@
+{
+  "profile_name": "generic_android_audit",
+  "display_name": "Generic Android Safe Audit Profile (Any Brand)",
+  "notes": [
+    "Used automatically when device is not Xiaomi/Redmi/POCO or user prefers a model-agnostic audit.",
+    "Only proposes clear telemetry/meta stubs after live inspection; OEM-specific packages must be reviewed directly from backups/<dir>/packages_inventory.json."
+  ],
+  "tier_a_safe_bloat_and_ads": [
+    {
+      "package_name": "com.facebook.system",
+      "app_name": "Meta App Installer",
+      "purpose": "Preinstalled silent Facebook installer stub",
+      "why_unnecessary": "Background Meta OEM preload stub",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.facebook.appmanager",
+      "app_name": "Meta App Manager",
+      "purpose": "Preinstalled silent Facebook updater stub",
+      "why_unnecessary": "Google Play handles updates",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.facebook.services",
+      "app_name": "Meta Services",
+      "purpose": "Preinstalled background Meta service stub",
+      "why_unnecessary": "Unneeded OEM background telemetry stub",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    }
+  ],
+  "tier_b_google_stock_replacement": [],
+  "appops_restrictions": []
+}

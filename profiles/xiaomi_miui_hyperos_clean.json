@@ -1,0 +1,390 @@
+{
+  "profile_name": "xiaomi_miui_hyperos_clean",
+  "display_name": "Xiaomi / Redmi / POCO (MIUI & HyperOS) — Clean Stock-Google Style",
+  "tested_baseline": "Redmi Note 10S (M2101K7BI), Android 13, MIUI Global 14.0.11.0.TKLINXM",
+  "compatibility": "MIUI 12/13/14 and Xiaomi HyperOS (Global & India ROMs; Chinese/carrier variants verified dynamically against live device inventory)",
+  "notes": [
+    "No OS change, no custom ROM, no root, no bootloader unlock. Uses official ADB --user 0 operations only.",
+    "Always inspect live device packages and run One-Click Backup + restore.py --dry-run before applying."
+  ],
+  "tier_a_safe_bloat_and_ads": [
+    {
+      "package_name": "com.miui.msa.global",
+      "app_name": "MSA (MIUI System Ads)",
+      "purpose": "System-wide Xiaomi advertising SDK and ad delivery daemon",
+      "why_unnecessary": "Primary ad-injection component across MIUI menus and apps",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.analytics",
+      "app_name": "Analytics",
+      "purpose": "Xiaomi telemetry and usage tracking background service",
+      "why_unnecessary": "Background diagnostic/ad analytics not required for OS stability",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.daemon",
+      "app_name": "MIUI Daemon",
+      "purpose": "MIUI background data-collection and telemetry daemon",
+      "why_unnecessary": "Collects device usage statistics with no user-facing necessity",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.xiaomi.glgm",
+      "app_name": "Xiaomi Games / Game Center",
+      "purpose": "Promotional game discovery storefront",
+      "why_unnecessary": "Manufacturer promo hub; Google Play handles game downloads",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.mi.globalminusscreen",
+      "app_name": "App Vault (-1 Screen)",
+      "purpose": "Home-screen left card feed with news, cards, and promotions",
+      "why_unnecessary": "Ad-heavy widget feed; Google Discover or a clean home screen can replace it",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.android.fashiongallery",
+      "app_name": "Wallpaper Carousel / Glance",
+      "purpose": "Lock-screen rotating image and ad/news feed",
+      "why_unnecessary": "Displays lock-screen promos and consumes background battery/data",
+      "action": "disable_user",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.hybrid",
+      "app_name": "Quick Apps",
+      "purpose": "Instant-app runtime often invoked by promotional ad links",
+      "why_unnecessary": "Only needed for Xiaomi Quick Apps web wrappers",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.hybrid.accessory",
+      "app_name": "Quick Apps Service",
+      "purpose": "Companion service for Quick Apps",
+      "why_unnecessary": "Unused companion to com.miui.hybrid",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.xiaomi.mipicks",
+      "app_name": "GetApps",
+      "purpose": "Xiaomi third-party app store",
+      "why_unnecessary": "Duplicate promo storefront alongside Google Play Store",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.indus.appstore",
+      "app_name": "Indus App Bazaar",
+      "purpose": "Preinstalled regional third-party app storefront",
+      "why_unnecessary": "Duplicate promo store; disable_user preserves easy re-enable",
+      "action": "disable_user",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.yellowpage",
+      "app_name": "Yellow Pages",
+      "purpose": "Business caller-ID and commercial directory integration",
+      "why_unnecessary": "Promotional directory plugin not required for phone/dialer",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.xiaomi.payment",
+      "app_name": "Mi Coin / Xiaomi Payment",
+      "purpose": "Xiaomi themes/store billing service",
+      "why_unnecessary": "Unneeded unless buying paid Xiaomi ecosystem items",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.mipay.wallet.in",
+      "app_name": "Mi Pay",
+      "purpose": "Preinstalled regional Xiaomi wallet app",
+      "why_unnecessary": "Unused payment bloat if using Google Pay / UPI; disabled cleanly without APK reinstall restriction issues",
+      "action": "disable_user",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.miservice",
+      "app_name": "Services & Feedback",
+      "purpose": "Xiaomi support ticket and feedback utility",
+      "why_unnecessary": "Sends telemetry/logs; optional support portal",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.bugreport",
+      "app_name": "Mi Feedback / Bug Report",
+      "purpose": "Diagnostics uploader for MIUI beta/bug reporting",
+      "why_unnecessary": "Background diagnostic uploader not needed for normal use",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.xiaomi.barrage",
+      "app_name": "Notification Barrage",
+      "purpose": "Floating scrolling notification overlay feature",
+      "why_unnecessary": "Visual distraction / overlay service",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.facebook.system",
+      "app_name": "Meta App Installer",
+      "purpose": "Preinstalled silent Facebook installer stub",
+      "why_unnecessary": "Background Meta carrier/OEM preload stub (safe even if you use Facebook from Play Store)",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.facebook.appmanager",
+      "app_name": "Meta App Manager",
+      "purpose": "Preinstalled silent Facebook updater stub",
+      "why_unnecessary": "Google Play handles Meta app updates",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.facebook.services",
+      "app_name": "Meta Services",
+      "purpose": "Preinstalled background Meta service stub",
+      "why_unnecessary": "Unneeded OEM background telemetry stub",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.bsp.catchlog",
+      "app_name": "CatchLog",
+      "purpose": "Modem/system engineering log recorder",
+      "why_unnecessary": "Developer log capture tool",
+      "action": "disable_user",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.debug.loggerui",
+      "app_name": "DebugLoggerUI",
+      "purpose": "MediaTek engineering debug logging UI",
+      "why_unnecessary": "Engineering logger not needed for daily use",
+      "action": "disable_user",
+      "risk": "safe"
+    }
+  ],
+  "tier_b_google_stock_replacement": [
+    {
+      "package_name": "com.miui.player",
+      "app_name": "Mi Music",
+      "purpose": "Preinstalled ad-supported media player",
+      "why_unnecessary": "Replaced by YouTube Music / VLC / Spotify",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.videoplayer",
+      "app_name": "Mi Video",
+      "purpose": "Preinstalled video player with online feed/notifications",
+      "why_unnecessary": "Promotional notifications and feed; Gallery or VLC plays local videos cleanly",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.mi.globalbrowser",
+      "app_name": "Mi Browser",
+      "purpose": "Xiaomi web browser with news feed and promo notifications",
+      "why_unnecessary": "Replaced by Chrome/Firefox/Brave",
+      "action": "uninstall_user0",
+      "risk": "safe",
+      "requires_any_of": ["com.android.chrome", "org.mozilla.firefox", "com.brave.browser"],
+      "prerequisite_note": "Keep/install Chrome or another browser first so links still open."
+    },
+    {
+      "package_name": "com.android.browser",
+      "app_name": "Mi/System Browser",
+      "purpose": "OEM browser variant",
+      "why_unnecessary": "Replaced by Chrome/Firefox/Brave",
+      "action": "uninstall_user0",
+      "risk": "safe",
+      "requires_any_of": ["com.android.chrome", "org.mozilla.firefox", "com.brave.browser"],
+      "prerequisite_note": "Keep/install Chrome or another browser first so links still open."
+    },
+    {
+      "package_name": "com.mi.android.globalFileexplorer",
+      "app_name": "Mi File Manager",
+      "purpose": "Xiaomi file manager with ad/recommendation cards",
+      "why_unnecessary": "Replaced by Files by Google or AOSP Files",
+      "action": "uninstall_user0",
+      "risk": "review",
+      "requires_any_of": ["com.google.android.apps.nbu.files"],
+      "prerequisite_note": "Install 'Files by Google' from Play Store first for clean file browsing."
+    },
+    {
+      "package_name": "com.miui.cleaner",
+      "app_name": "Mi Cleaner",
+      "purpose": "Storage cleaner utility with promotional cards",
+      "why_unnecessary": "Redundant cleaner; Files by Google handles cleanup without ads",
+      "action": "uninstall_user0",
+      "risk": "review"
+    },
+    {
+      "package_name": "com.facemoji.lite.xiaomi",
+      "app_name": "Emoji Keyboard for Xiaomi",
+      "purpose": "Preinstalled secondary third-party keyboard",
+      "why_unnecessary": "Duplicate keyboard when Gboard is active",
+      "action": "disable_user",
+      "risk": "review",
+      "requires_any_of": ["com.google.android.inputmethod.latin"],
+      "prerequisite_note": "Ensure Gboard is installed and selected as default keyboard first."
+    },
+    {
+      "package_name": "com.miui.cloudservice",
+      "app_name": "Xiaomi Cloud",
+      "purpose": "Xiaomi cloud sync/storage frontend",
+      "why_unnecessary": "Unneeded if using Google Drive / Google Photos backup (review if you rely on Xiaomi Cloud Find Device backup)",
+      "action": "uninstall_user0",
+      "risk": "review"
+    },
+    {
+      "package_name": "com.miui.cloudbackup",
+      "app_name": "Xiaomi Cloud Backup",
+      "purpose": "Xiaomi cloud device backup service",
+      "why_unnecessary": "Replaced by Google One device backup",
+      "action": "uninstall_user0",
+      "risk": "review"
+    },
+    {
+      "package_name": "com.miui.micloudsync",
+      "app_name": "Mi Cloud Sync",
+      "purpose": "Xiaomi account sync connector",
+      "why_unnecessary": "Replaced by Google account sync",
+      "action": "uninstall_user0",
+      "risk": "review"
+    },
+    {
+      "package_name": "com.xiaomi.discover",
+      "app_name": "System Apps Updater",
+      "purpose": "Xiaomi app-update service for OEM apps",
+      "why_unnecessary": "Removes background OEM app-update checks/notifications (note: Global MIUI Settings menu row remains visible even when backend is uninstalled)",
+      "action": "uninstall_user0",
+      "risk": "review"
+    },
+    {
+      "package_name": "com.miui.weather2",
+      "app_name": "Mi Weather",
+      "purpose": "Xiaomi weather app with ads/cards",
+      "why_unnecessary": "Optional stock weather app if you use Google Weather",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.compass",
+      "app_name": "Mi Compass",
+      "purpose": "OEM compass utility",
+      "why_unnecessary": "Optional utility",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.fm",
+      "app_name": "FM Radio",
+      "purpose": "Preinstalled wired-headset FM radio",
+      "why_unnecessary": "Remove only if you never use offline FM radio",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.fmservice",
+      "app_name": "FM Radio Service",
+      "purpose": "Backend service for FM Radio",
+      "why_unnecessary": "Companion to com.miui.fm",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.xiaomi.midrop",
+      "app_name": "ShareMe",
+      "purpose": "Xiaomi file-transfer utility",
+      "why_unnecessary": "Android Quick Share / Nearby Share already handles transfers",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.xiaomi.scanner",
+      "app_name": "Scanner",
+      "purpose": "OEM QR/document scanner",
+      "why_unnecessary": "Google Camera / Lens & Control Center QR tile work without extra app",
+      "action": "uninstall_user0",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.miui.notes",
+      "app_name": "Mi Notes",
+      "purpose": "Xiaomi Notes app",
+      "why_unnecessary": "Replaced by Google Keep (check for local notes first!)",
+      "action": "uninstall_user0",
+      "risk": "review"
+    },
+    {
+      "package_name": "com.miui.calculator",
+      "app_name": "Mi Calculator",
+      "purpose": "Xiaomi calculator",
+      "why_unnecessary": "Replaced by Google Calculator",
+      "action": "uninstall_user0",
+      "risk": "review",
+      "requires_any_of": ["com.google.android.calculator"],
+      "prerequisite_note": "Install Google Calculator first so you don't lose calculator access."
+    },
+    {
+      "package_name": "com.xiaomi.calendar",
+      "app_name": "Mi Calendar",
+      "purpose": "Xiaomi Calendar app with holiday cards/notifications",
+      "why_unnecessary": "Replaced by Google Calendar",
+      "action": "uninstall_user0",
+      "risk": "review",
+      "requires_any_of": ["com.google.android.calendar"],
+      "prerequisite_note": "Install Google Calendar first before removing Mi Calendar."
+    },
+    {
+      "package_name": "com.xiaomi.smarthome",
+      "app_name": "Xiaomi Home",
+      "purpose": "Smart home appliance companion app",
+      "why_unnecessary": "Unneeded unless you control Mi/Xiaomi IoT devices; note disabling hides Smart Devices Control Center card",
+      "action": "disable_user",
+      "risk": "safe"
+    },
+    {
+      "package_name": "com.google.android.apps.safetyhub",
+      "app_name": "Personal Safety",
+      "purpose": "Google Personal Safety / emergency sharing app",
+      "why_unnecessary": "Optional by explicit user choice (Emergency SOS/medical card features stop working if removed)",
+      "action": "uninstall_user0",
+      "risk": "review"
+    }
+  ],
+  "appops_restrictions": [
+    {
+      "package_name": "com.miui.global.packageinstaller",
+      "op": "RUN_ANY_IN_BACKGROUND",
+      "new_mode": "ignore",
+      "purpose": "Keep MIUI package installer from running idle background tasks while preserving APK installs"
+    },
+    {
+      "package_name": "com.miui.global.packageinstaller",
+      "op": "POST_NOTIFICATION",
+      "new_mode": "ignore",
+      "purpose": "Silence promotional post-install scan/recommended app notifications"
+    },
+    {
+      "package_name": "com.android.thememanager",
+      "op": "RUN_ANY_IN_BACKGROUND",
+      "new_mode": "ignore",
+      "purpose": "Prevent Themes app from waking in background to push promo notifications"
+    }
+  ]
+}

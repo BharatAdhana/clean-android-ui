@@ -1,0 +1,14 @@
+{
+  "name": "clean-miui-ai",
+  "displayName": "Clean Android UI (MIUI & HyperOS)",
+  "version": "1.0.0",
+  "homepage": "https://github.com/BharatAdhana/clean-android-ui#readme",
+  "repository": "https://github.com/BharatAdhana/clean-android-ui",
+  "description": "AI-guided non-root Android & MIUI/HyperOS bloatware, ad, and UI cleaner over USB or Wireless ADB with one-click backup and verified recovery.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Connect to my phone via ADB, run a full backup + restore dry-run test first, then inspect bloatware and ads.",
+    "Clean my Xiaomi/Redmi phone like stock Google Android without changing OS or unlocking bootloader, after taking a full backup.",
+    "Restore all previously removed apps, states, and settings from my latest backup."
+  ]
+}
