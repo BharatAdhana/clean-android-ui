@@ -10,6 +10,27 @@
 
 ---
 
+## Real-Device Result (Redmi Note 10S — Existing Stock OS)
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/clean-app-drawer.jpg" alt="Clean Organized App Drawer" width="230" /><br />
+      <sub><b>Organized App Drawer</b><br />Stock Google essentials only — zero bloatware clutter</sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/clean-control-center.jpg" alt="Clean Full-Width Control Center" width="230" /><br />
+      <sub><b>Crisp Control Center</b><br />New MIUI Control Center + <code>440 dpi</code> &amp; Small text scaling</sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/clean-lock-screen.jpg" alt="Minimal Dark Ad-Free Lock Screen" width="230" /><br />
+      <sub><b>Minimal Lock Screen</b><br />Clean dark layout — Glance carousel &amp; promos removed</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## What It Does
 
 1. **One-Click Backup & Restore Check FIRST:** Captures your device inventory, package states, settings (`system`/`secure`/`global`), and pullable APKs (with SHA-256 + ZIP checks), then runs `restore.py --dry-run` **before** changing a single app.
@@ -119,6 +140,9 @@ clean-android-ui/
 ├── QUICKSTART_PROMPTS.md                    # Ready copy-paste prompts
 ├── skills/clean-miui-ai/SKILL.md            # Complete AI workflow playbook
 ├── rules/AGENTS.md                          # Plugin-scoped guardrails
+├── assets/
+│   ├── logo.svg                             # Bundle emblem
+│   └── screenshots/                         # Real-device UI showcase screenshots
 ├── docs/
 │   ├── CONNECTION_GUIDE.md                  # USB & same-Wi-Fi Wireless ADB setup
 │   └── UI_AND_CONTROL_CENTER_GUIDE.md       # Clean UI, Control Center DPI & ad toggles

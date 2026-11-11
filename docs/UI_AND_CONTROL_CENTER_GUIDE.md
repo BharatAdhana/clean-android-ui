@@ -25,6 +25,10 @@ adb shell wm density          # Check current Physical vs Override density
 adb shell wm density reset    # Safely return to factory display density anytime
 ```
 
+<p align="center">
+  <img src="../assets/screenshots/clean-control-center.jpg" alt="Target Control Center layout after 440 dpi and Small text fix" width="240" />
+</p>
+
 ---
 
 ## 2. Clean Stock-Style Home Screen & App Drawer
@@ -32,6 +36,10 @@ adb shell wm density reset    # Safely return to factory display density anytime
 1. **Settings -> Home screen -> Home screen mode -> With App drawer**
    - Turn **off** *App suggestions* and *Discover / Mi Browser swipe-up clutter* inside Home screen settings.
    - Manage **App categories** neatly (`Communication`, `Entertainment`, `Photography`, etc.) or disable noisy extra tabs so `All` apps stays tidy.
+
+<p align="center">
+  <img src="../assets/screenshots/clean-app-drawer.jpg" alt="Organized App Drawer without bloatware" width="240" />
+</p>
 2. Keep **Home Screen pages minimal**: place only essentials (Phone, Messages, Chrome, Camera, Gallery/Photos, Maps, daily apps) and use the clean App Drawer for everything else.
 3. **Settings -> Home screen -> System navigation:** Choose **Gestures** (modern Pixel/iOS swipe navigation) or classic **Buttons** according to your habit.
 4. Set **Google Apps as Defaults** (when using `--tier tier_a_and_b`):
