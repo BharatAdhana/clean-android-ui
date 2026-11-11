@@ -19,11 +19,28 @@ if not defined PY_CMD (
     goto maybe_pause
 )
 
+set "HELP_MODE=0"
+set "RAW_ARGS=%*"
+:parse_args
+if "%~1"=="" goto run_restore
+if /i "%~1"=="--help" set "HELP_MODE=1"
+if /i "%~1"=="-h" set "HELP_MODE=1"
+shift
+goto parse_args
+
+:run_restore
+if not "%HELP_MODE%"=="1" goto show_banner
+%PY_CMD% scripts\restore.py %RAW_ARGS%
+set "EXIT_CODE=%errorlevel%"
+popd 2>nul
+endlocal & exit /b %EXIT_CODE%
+
+:show_banner
 echo ========================================================================
 echo   Clean MIUI AI - One-Click Restore
 echo   Restores packages, settings, appops, and display density from backup.
 echo ========================================================================
-%PY_CMD% scripts\restore.py %*
+%PY_CMD% scripts\restore.py %RAW_ARGS%
 set "EXIT_CODE=%errorlevel%"
 
 if %EXIT_CODE%==0 (

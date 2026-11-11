@@ -1,6 +1,15 @@
 {
   "profile_name": "generic_android_audit",
   "display_name": "Generic Android Safe Audit Profile (Any Brand)",
+  "compatibility": {
+    "target_brands": [],
+    "target_os_families": [],
+    "tested_devices": [],
+    "summary": "Conservative brand-agnostic fallback profile (UNTESTED across Samsung/Pixel/OnePlus/Motorola builds).",
+    "untested_notes": [
+      "Only flags cross-OEM Meta preinstall stubs automatically; review packages_inventory.json manually before approving any OEM packages."
+    ]
+  },
   "notes": [
     "Used automatically when device is not Xiaomi/Redmi/POCO or user prefers a model-agnostic audit.",
     "Only proposes clear telemetry/meta stubs after live inspection; OEM-specific packages must be reviewed directly from backups/<dir>/packages_inventory.json."

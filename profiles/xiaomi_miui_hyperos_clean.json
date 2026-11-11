@@ -2,7 +2,23 @@
   "profile_name": "xiaomi_miui_hyperos_clean",
   "display_name": "Xiaomi / Redmi / POCO (MIUI & HyperOS) — Clean Stock-Google Style",
   "tested_baseline": "Redmi Note 10S (M2101K7BI), Android 13, MIUI Global 14.0.11.0.TKLINXM",
-  "compatibility": "MIUI 12/13/14 and Xiaomi HyperOS (Global & India ROMs; Chinese/carrier variants verified dynamically against live device inventory)",
+  "compatibility": {
+    "target_brands": ["xiaomi", "redmi", "poco"],
+    "target_os_families": ["miui", "hyperos"],
+    "tested_devices": [
+      {
+        "model": "M2101K7BI",
+        "marketing_name": "Redmi Note 10S",
+        "android_version": "13",
+        "miui_ui_version": "V14",
+        "rom_contains": "14.0.11.0"
+      }
+    ],
+    "summary": "Hardware-tested ONLY on Redmi Note 10S (M2101K7BI, Android 13, MIUI Global 14.0.11.0.TKLINXM).",
+    "untested_notes": [
+      "Xiaomi HyperOS, MIUI 12/13, China/EU/carrier ROMs, and models other than M2101K7BI are UNTESTED; always review the draft plan carefully."
+    ]
+  },
   "notes": [
     "No OS change, no custom ROM, no root, no bootloader unlock. Uses official ADB --user 0 operations only.",
     "Always inspect live device packages and run One-Click Backup + restore.py --dry-run before applying."
@@ -357,12 +373,14 @@
       "why_unnecessary": "Unneeded unless you control Mi/Xiaomi IoT devices; note disabling hides Smart Devices Control Center card",
       "action": "disable_user",
       "risk": "safe"
-    },
+    }
+  ],
+  "optional_user_preferences": [
     {
       "package_name": "com.google.android.apps.safetyhub",
       "app_name": "Personal Safety",
-      "purpose": "Google Personal Safety / emergency sharing app",
-      "why_unnecessary": "Optional by explicit user choice (Emergency SOS/medical card features stop working if removed)",
+      "purpose": "Google Personal Safety / emergency sharing app (NOT Xiaomi bloatware)",
+      "why_unnecessary": "Included only via --include-optional or explicit user choice (Emergency SOS/medical card features stop working if removed)",
       "action": "uninstall_user0",
       "risk": "review"
     }

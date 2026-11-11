@@ -78,7 +78,9 @@ Standard bloatware disabling/uninstalling works with regular **USB debugging** /
 
 1. **`USB debugging (Security settings)`** — Required ONLY if you want ADB to modify system `settings` keys, grant/revoke `appops`, or adjust `wm density` display scaling. *(Note: On MIUI, enabling this usually asks for Xiaomi Account sign-in once.)*
 2. **`Install via USB`** — Required ONLY if you later need `adb install` to reinstall a **non-system user-installed / third-party preinstalled APK**.
-   - *Why our scripts avoid needing this:* Clean MIUI AI defaults to `disable_user` (`pm disable-user --user 0`) on non-system OEM stubs (`Mi Pay`, `Indus Appstore`, `Facemoji`, `Glance`) so `OneClick_Restore` can re-enable them cleanly without hitting `INSTALL_FAILED_USER_RESTRICTED`.
+   - *Why our scripts avoid needing this:* Clean Android UI defaults to `disable_user` (`pm disable-user --user 0`) on non-system OEM stubs (`Mi Pay`, `Indus Appstore`, `Facemoji`, `Glance`) so `OneClick_Restore` can re-enable them via `pm enable` without needing `Install via USB` (which only applies when reinstalling missing non-system APKs).
+
+> **Banking & UPI Note:** Some banking/UPI apps refuse to run while **Developer options**, **USB debugging**, or **Wireless debugging** remain active. Once your cleanup and verification finish, turn **Developer options** off unless you need ADB later.
 
 ---
 

@@ -15,7 +15,7 @@ Removing ads and bloatware gives you a clean software foundation — this guide 
 ### Fix Shrunk / Compressed Control Center Box (The `325dp` / `440 dpi` Lesson)
 On **MIUI 14 Global (`Redmi Note 10S`, `1080x2400`)**, changing **Smallest width** or lowering density carelessly can trigger MIUI's Control Center scaling quirk where the quick-toggle container looks capped around `325dp` width instead of fitting comfortably across the screen, or makes labels wrap weirdly.
 
-Recommended balanced proportions (matches our hardware-verified clean layout):
+Recommended balanced proportions (verified on `Redmi Note 10S`, MIUI `14.0.11.0`; untested on HyperOS or other MIUI versions):
 - **Display density / Smallest width (`1080p` phones):** `392dp` (`wm density 440` on `1080x2400` physical display — or reset to default stock density with `wm density reset`).
 - **Settings -> Display -> Text size:** Set to **Small** (`FONT_SCALE: 1.0` or lower step depending on preference) — keeps `"Mobile data"`, `"Bluetooth"`, and `"Aeroplane mode"` crisp without ugly truncation.
 
